@@ -1,4 +1,4 @@
-<!DOCTYPE html> 
+<!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="UTF-8">
@@ -6,16 +6,148 @@
     <title>Merry</title>
     <meta name="description" content="Merry Christmas!">
 
-    <!-- Meta Robots Tag (adjust as needed) -->
+    <!-- Meta Robots Tag -->
     <meta name="robots" content="index, follow">
-    <link rel="stylesheet" href="styles.css" />
-    <link rel="stylesheet" href="santa.css" />
+
+    <style>
+      body {
+        background-image: url("https://github.com/megha-ranjith/muwishes/blob/2a6c7e5e60a1e81692d6e68e0f51e1ff002e5438/bgv.gif?raw=true");
+        overflow: hidden;
+        background-size: cover;
+        background-repeat: no-repeat;
+        font-size: 16px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: 100vh;
+        margin: 0;
+      }
+
+      .birthdayCard {
+        position: absolute;
+        width: 250px;
+        height: 350px;
+        cursor: pointer;
+        transform-style: preserve-3d;
+        transform: perspective(2500px);
+        transition: 4s;
+      }
+
+      .confetti {
+        display: none;
+        width: 100%;
+        height: 100vh;
+      }
+
+      .birthdayCard:hover {
+        transform: perspective(2500px) rotate(5deg);
+        box-shadow: inset 100px 20px 100px rgba(0, 0, 0, 0.15), 0 10px 100px rgba(0, 0, 0, 0.3);
+      }
+
+      .birthdayCard:hover .cardFront {
+        transform: rotateY(-160deg);
+      }
+
+      .birthdayCard:hover .front-text {
+        display: none;
+      }
+
+      .cardFront {
+        position: relative;
+        background-color: #fff;
+        width: 250px;
+        height: 350px;
+        overflow: hidden;
+        transform-origin: left;
+        box-shadow: inset 100px 20px 100px rgba(0, 0, 0, 0.13), 30px 0 50px rgba(0, 0, 0, 0.1);
+        transition: 0.4s;
+      }
+
+      .happy,
+      .toyou {
+        position: relative;
+        font-family: didot;
+        text-align: center;
+        backface-visibility: hidden;
+        font-size: 30px;
+      }
+
+      .happy {
+        top: 198px;
+      }
+
+      .toyou {
+        top: 123px;
+      }
+
+      .bday {
+        position: relative;
+        font-family: arial;
+        font-size: 35px;
+        text-align: center;
+        top: 163px;
+      }
+
+      .cardInside {
+        position: absolute;
+        background-color: #fff;
+        width: 250px;
+        height: 350px;
+        z-index: -1;
+        left: 0;
+        top: 0;
+        box-shadow: inset 100px 20px 100px rgba(0, 0, 0, 0.2);
+      }
+
+      .inside-text {
+        position: relative;
+        top: -160px;
+        transform: scale(0.7);
+      }
+
+      .wishes {
+        position: relative;
+        top: -100px;
+        margin: 25px;
+      }
+
+      p {
+        font-family: "Brush Script MT", cursive;
+        color: #333;
+        font-size: 17px;
+      }
+
+      .name {
+        margin-left: 150px;
+      }
+
+      .modal {
+        display: none;
+        justify-content: center;
+        align-items: center;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100vh;
+        background-color: rgba(0, 0, 0, 0.19);
+      }
+
+      .close {
+        font-size: 20px;
+        font-weight: bold;
+        cursor: pointer;
+        color: #888;
+        position: relative;
+        left: 240px;
+      }
+    </style>
   </head>
   <body>
     <canvas id="confetti" class="confetti"> </canvas>
     <div class="birthdayCard">
       <div class="cardFront">
-        <div class="canvas" role="img" aria-label="Cartoon of Santa Claus on top of a snowy hill">   
+        <div class="canvas" role="img" aria-label="Cartoon of Santa Claus on top of a snowy hill">
           <div class="body">
             <div class="belt"></div>
           </div>
@@ -23,7 +155,7 @@
           <div class="head">
             <div class="hat"></div>
           </div>
-        </div>    
+        </div>
 
         <div class="front-text">
           <h3 class="happy">MERRY</h3>
