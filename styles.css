@@ -1,16 +1,22 @@
 body {
-  background-image:url(bgv.gif);
-    overflow: hidden;
-    background-size: cover;
-    background-repeat: no-repeat;
-   
-    font-size: 16px;
+  margin: 0;
+  overflow: hidden;
+  font-size: 16px;
   display: flex;
   align-items: center;
   justify-content: center;
   height: 100vh;
-  margin: 0;
-  background-color:red;
+}
+
+body::before {
+  content: "";
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: url('https://raw.githubusercontent.com/<megha-ranjith>/<muwishes>/main/bgv.gif') center center/cover no-repeat;
+  z-index: -1;
 }
 
 .birthdayCard {
@@ -22,6 +28,9 @@ body {
   transform: perspective(2500px);
   transition: 4s;
 }
+
+/* Keep all other styles as-is */
+
 
 .confetti {
   display: none;
@@ -132,4 +141,6 @@ p {
   position: relative;
   left: 240px;
 }
+
+
 
